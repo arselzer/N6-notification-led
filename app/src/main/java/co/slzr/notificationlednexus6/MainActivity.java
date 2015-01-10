@@ -57,6 +57,13 @@ public class MainActivity extends ActionBarActivity {
 
         Button enableButton = (Button) findViewById(R.id.enable_settings);
 
+        enableButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent("android.settings.ACTION_NOTIFICATION_LISTENER_SETTINGS"));
+            }
+        });
+
         ToggleButton redToggle = (ToggleButton) findViewById(R.id.red_toggle);
         redToggle.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
