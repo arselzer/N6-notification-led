@@ -9,9 +9,9 @@ import java.io.IOException;
  * Created by as on 10/01/15.
  */
 public class LightController {
+    public static String LED_RED = "red";
     public static String LED_GREEN = "green";
     public static String LED_BLUE = "blue";
-    public static String LED_RED = "red";
     public static String LED_CHARGING = "charging";
 
     Process su;

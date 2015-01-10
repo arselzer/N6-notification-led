@@ -1,14 +1,8 @@
 package co.slzr.notificationlednexus6;
 
-import android.app.Service;
-import android.content.Intent;
-import android.os.IBinder;
 import android.service.notification.NotificationListenerService;
 import android.service.notification.StatusBarNotification;
 import android.util.Log;
-
-import java.io.DataOutputStream;
-import java.io.IOException;
 
 /**
  * Created by as on 08/01/15.
@@ -22,6 +16,8 @@ public class LightNotificationListener extends NotificationListenerService {
 
     int delay = 600;
     int smallDelay = 2;
+    int flashes = 0;
+    int maxFlashes = 6;
 
     boolean lightOn = false;
 
@@ -66,11 +62,18 @@ public class LightNotificationListener extends NotificationListenerService {
     }
 
     void startLightThread() {
+        flashes = 0;
         lightThread = new Thread(new Runnable() {
             @Override
             public void run() {
                 try {
                     while (!Thread.currentThread().isInterrupted()) {
+
+                        Log.d("", "flashes: " + flashes);
+                        if (flashes >= maxFlashes) {
+                            break;
+                        }
+
                         //Log.d("LigthThread", "one flash");
                         Thread.sleep(delay);
 
@@ -80,10 +83,13 @@ public class LightNotificationListener extends NotificationListenerService {
                         }
 
                         lightController.setBrightness(LightController.LED_BLUE, 0);
+                        flashes++;
                     }
                 } catch (InterruptedException e) {
-                    stopSelf();
-                }x
+                    // thread.interrupt() called because the notification was removed.
+                    lightController.setBrightness(LightController.LED_BLUE, 0);
+                    Thread.currentThread().interrupt();
+                }
             }
         });
 

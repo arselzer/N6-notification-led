@@ -2,7 +2,19 @@
 <resources>
 
     <string name="app_name">Notification LED Nexus 6</string>
-    <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
 
+    <string name="android_notification_settings">Enable / Disable</string>
+
+    <string name="settings_dialog_info">The app needs to be enabled in Notification Settings.</string>
+    <string name="settings_dialog_enable">Enable</string>
+    <string name="settings_dialog_cancel">Cancel</string>
+
+    <string name="light_control">LED Control</string>
+    <string name="notification_settings">Notification Light</string>
+
+    <string name="red">red</string>
+    <string name="green">green</string>
+    <string name="blue">blue</string>
+    <string name="charging">charging</string>
 </resources>

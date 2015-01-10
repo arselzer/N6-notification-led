@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="led_red">#ffff6655</color>
+    <color name="led_green">#ff75e76e</color>
+    <color name="led_blue">#ff5d77ff</color>
+    <color name="led_charging">#ff4df43f</color>
+</resources>

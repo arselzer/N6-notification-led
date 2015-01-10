@@ -1,15 +1,20 @@
 package co.slzr.notificationlednexus6;
 
-import android.app.NotificationManager;
-import android.content.Context;
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
-import android.support.v4.app.NotificationCompat;
+import android.content.SharedPreferences;
+import android.app.DialogFragment;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
+import android.widget.ToggleButton;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -21,55 +26,85 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        enableButton = (Button) findViewById(R.id.enable_settings);
+        SharedPreferences prefs = getSharedPreferences("settings", 0);
 
-        //startService(new Intent(this, ColorfulNotificationService.class));
+        if (!prefs.getBoolean("appOpenedFirstTime", false)) {
+            AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
 
-        /*
-        if (BuildConfig.DEBUG) {
-            final NotificationManager nf = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-
-            new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    while (true) {
-                        try {
-                            Thread.sleep(8 * 1000);
-
-                            NotificationCompat.Builder Builder = new NotificationCompat.Builder(getBaseContext())
-                                    .setSmallIcon(R.drawable.abc_btn_radio_to_on_mtrl_000)
-                                    .setContentTitle("My notification")
-                                    .setContentText("Hello World!")
-                                    .setTicker("Ticker blabla");
-
-                            nf.notify(123, Builder.build());
-
-
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
-                    }
+            dialogBuilder.setMessage(R.string.settings_dialog_info);
+            dialogBuilder.setPositiveButton(R.string.settings_dialog_enable, new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int id) {
+                    startActivity(new Intent("android.settings.ACTION_NOTIFICATION_LISTENER_SETTINGS"));
                 }
-            }).start();
-        }
-        */
+            });
+            dialogBuilder.setNegativeButton(R.string.settings_dialog_cancel, new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int id) {
 
-        enableButton.setOnClickListener(new View.OnClickListener() {
+                }
+            });
+
+            AlertDialog dialog = dialogBuilder.create();
+
+            dialog.show();
+        }
+
+        SharedPreferences.Editor editor = prefs.edit();
+
+        editor.putBoolean("appOpenedFirstTime", true);
+        editor.commit();
+
+        final LightController lc = new LightController();
+
+        Button enableButton = (Button) findViewById(R.id.enable_settings);
+
+        ToggleButton redToggle = (ToggleButton) findViewById(R.id.red_toggle);
+        redToggle.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
-            public void onClick(View v) {
-                startActivity(new Intent("android.settings.ACTION_NOTIFICATION_LISTENER_SETTINGS"));
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                int brightness = 0;
+                if (isChecked)
+                    brightness = 255;
+
+                lc.setBrightness(LightController.LED_RED, brightness);
             }
         });
 
-        Button blueLight = (Button) findViewById(R.id.blue_light);
-        blueLight.setOnClickListener(new View.OnClickListener() {
+        ToggleButton greenToggle = (ToggleButton) findViewById(R.id.green_toggle);
+        greenToggle.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
-            public void onClick(View v) {
-                new LightController().setBrightness(LightController.LED_BLUE, 0);
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                int brightness = 0;
+                if (isChecked)
+                    brightness = 255;
+
+                lc.setBrightness(LightController.LED_GREEN, brightness);
+            }
+        });
+
+        ToggleButton blueToggle = (ToggleButton) findViewById(R.id.blue_toggle);
+        blueToggle.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                int brightness = 0;
+                if (isChecked)
+                    brightness = 255;
+
+                lc.setBrightness(LightController.LED_BLUE, brightness);
+            }
+        });
+
+        ToggleButton chargingToggle = (ToggleButton) findViewById(R.id.charging_toggle);
+        chargingToggle.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                int brightness = 0;
+                if (isChecked)
+                    brightness = 255;
+
+                lc.setBrightness(LightController.LED_CHARGING, brightness);
             }
         });
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
