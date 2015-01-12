@@ -16,7 +16,7 @@
    version="1.1"
    inkscape:version="0.48.5 r10040"
    sodipodi:docname="n6-led.svg"
-   inkscape:export-filename="/home/as/Pictures/n6-led.png"
+   inkscape:export-filename="/home/as/AndroidStudioProjects/NotificationLEDNexus6/app/src/main/res/n6-led.png"
    inkscape:export-xdpi="90"
    inkscape:export-ydpi="90">
   <defs
@@ -42,15 +42,6 @@
        x2="167.3772"
        y2="483.80412"
        gradientUnits="userSpaceOnUse" />
-    <linearGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient4026"
-       id="linearGradient4038"
-       gradientUnits="userSpaceOnUse"
-       x1="145.34077"
-       y1="483.80412"
-       x2="167.3772"
-       y2="483.80412" />
   </defs>
   <sodipodi:namedview
      id="base"
@@ -60,8 +51,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1"
-     inkscape:cx="114.15873"
-     inkscape:cy="230.22508"
+     inkscape:cx="143.18942"
+     inkscape:cy="231.03982"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -173,7 +164,34 @@
          inkscape:connector-curvature="0"
          id="path4016"
          d="m 145.84077,484.59961 c 0,0 13.08148,6.01041 21.03643,6.18719 0,0 -12.55115,-7.42462 -12.37437,-13.96536"
-         style="fill:url(#linearGradient4038);fill-opacity:1;stroke:#000000;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+         style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    </g>
+    <g
+       id="g3819"
+       transform="matrix(1.0044687,0,0,1.0694688,-27.537589,-63.156175)">
+      <path
+         transform="translate(0,540.36218)"
+         inkscape:connector-curvature="0"
+         id="path3769"
+         d="M 120.20815,316.83853 120,346.75 142.75,330.5 z"
+         style="fill:#ffffff;fill-opacity:1;stroke:none" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path3769-9"
+         d="m 176.29185,856.90644 0.20815,29.91147 -22.75,-16.25 z"
+         style="fill:#ffffff;fill-opacity:1;stroke:none" />
+      <path
+         transform="translate(0,540.36218)"
+         inkscape:connector-curvature="0"
+         id="path3815"
+         d="m 120.20815,315.86626 28.01911,16.79378 28.10749,-17.32411 z"
+         style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         transform="translate(0,540.36218)"
+         inkscape:connector-curvature="0"
+         id="path3817"
+         d="m 122.1527,346.6254 21.38998,-15.55635 4.68458,3.00521 4.68458,-2.91682 21.12482,15.29118 z"
+         style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
     </g>
   </g>
 </svg>
