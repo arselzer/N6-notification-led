@@ -28,7 +28,7 @@ public class MainActivity extends ActionBarActivity {
 
         SharedPreferences prefs = getSharedPreferences("settings", 0);
 
-        if (!prefs.getBoolean("appOpenedFirstTime", false)) {
+        if (!prefs.getBoolean("app_opened_first_time", false)) {
             AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
 
             dialogBuilder.setMessage(R.string.settings_dialog_info);
@@ -50,7 +50,9 @@ public class MainActivity extends ActionBarActivity {
 
         SharedPreferences.Editor editor = prefs.edit();
 
-        editor.putBoolean("appOpenedFirstTime", true);
+        editor.putBoolean("app_opened_first_time", true);
+        editor.putInt("led_off", 600);
+        editor.putInt("led_on", 400);
         editor.commit();
 
         final LightController lc = new LightController();

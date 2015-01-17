@@ -30,7 +30,7 @@
             android:text="@string/android_notification_settings"
             android:id="@+id/enable_settings"/>
 
-        </LinearLayout>
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"

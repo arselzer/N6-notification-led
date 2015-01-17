@@ -10,6 +10,9 @@
     <string name="settings_dialog_enable">Enable</string>
     <string name="settings_dialog_cancel">Cancel</string>
 
+    <string name="led_off">LED off</string>
+    <string name="led_on">LED on</string>
+
     <string name="light_control">LED Control</string>
     <string name="notification_settings">Notification Light</string>
 
